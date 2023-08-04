@@ -1,0 +1,1 @@
+export 'package:jobjet/infrastructure/navigation/bindings/controllers/home.controller.binding.dart'; 
