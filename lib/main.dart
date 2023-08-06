@@ -8,10 +8,10 @@ import 'infrastructure/navigation/routes.dart';
 
 void main() async {
   var initialRoute = await Routes.initialRoute;
+  WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-
   runApp(Main(initialRoute));
 }
 
