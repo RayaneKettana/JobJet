@@ -11,6 +11,14 @@ ThemeData theme() {
         backgroundColor: jPrimaryColor,
       ),
     ),
+    outlinedButtonTheme: OutlinedButtonThemeData(
+      style: OutlinedButton.styleFrom(
+        foregroundColor: jPrimaryColor,
+        side: const BorderSide(
+          color: jPrimaryColor,
+        ),
+      ),
+    ),
     inputDecorationTheme: const InputDecorationTheme(
       floatingLabelBehavior: FloatingLabelBehavior.always,
       enabledBorder: OutlineInputBorder(

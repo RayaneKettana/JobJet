@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
 
 import 'controllers/login.controller.dart';
@@ -8,15 +7,13 @@ class LoginScreen extends GetView<LoginController> {
   const LoginScreen({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('LoginScreen'),
-        centerTitle: true,
-      ),
-      body: const Center(
-        child: Text(
-          'LoginScreen is working',
-          style: TextStyle(fontSize: 20),
+    return const Scaffold(
+      body: SafeArea(
+        child: Padding(
+          padding: EdgeInsets.all(8.0),
+          child: Column(
+            children: [],
+          ),
         ),
       ),
     );
