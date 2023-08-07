@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
 
 import '../../config.dart';
@@ -33,7 +32,7 @@ class Nav {
     ),
     GetPage(
       name: Routes.LOGIN,
-      page: () => const LoginScreen(),
+      page: () => LoginScreen(),
       binding: LoginControllerBinding(),
     ),
     GetPage(

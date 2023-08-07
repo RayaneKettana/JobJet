@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import 'package:jobjet/presentation/login/login.screen.dart';
 import 'package:sizer/sizer.dart';
 
 import 'controllers/splash.controller.dart';
@@ -18,7 +19,8 @@ class SplashScreen extends GetView<SplashController> {
               SizedBox(
                 height: 6.0.h,
               ),
-              const Text('JobJet ! ', style: TextStyle(fontSize: 36)),
+              Text('JobJet ! ',
+                  style: Theme.of(context).textTheme.headlineLarge),
               SizedBox(
                 height: 2.0.h,
               ),
@@ -29,10 +31,10 @@ class SplashScreen extends GetView<SplashController> {
               SizedBox(
                 height: 2.0.h,
               ),
-              const Text(
+              Text(
                 textAlign: TextAlign.center,
                 "Gérez vos rendez-vous, clients et plus encore, en toute simplicité.",
-                style: TextStyle(fontSize: 18),
+                style: Theme.of(context).textTheme.bodyLarge,
               ),
               const Spacer(),
               Row(
@@ -41,9 +43,13 @@ class SplashScreen extends GetView<SplashController> {
                 children: [
                   OutlinedButton(
                     onPressed: () {},
-                    child: Text("S'inscrire"),
+                    child: const Text("S'inscrire"),
                   ),
-                  ElevatedButton(onPressed: () {}, child: Text("Se connecter")),
+                  ElevatedButton(
+                      onPressed: () {
+                        Get.off(LoginScreen());
+                      },
+                      child: const Text("Se connecter")),
                 ],
               ),
             ],
