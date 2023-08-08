@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
+import 'package:jobjet/presentation/applications/widgets/features_list/features_list.screen.dart';
+import 'package:sizer/sizer.dart';
 
 import 'controllers/applications.controller.dart';
 
@@ -9,14 +10,43 @@ class ApplicationsScreen extends GetView<ApplicationsController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('ApplicationsScreen'),
-        centerTitle: true,
-      ),
-      body: const Center(
-        child: Text(
-          'ApplicationsScreen is working',
-          style: TextStyle(fontSize: 20),
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            children: [
+              SizedBox(height: 2.h),
+              const Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'Welcome Méli ! 👋',
+                    style: TextStyle(fontSize: 20),
+                  ),
+                  CircleAvatar(
+                    radius: 20,
+                    backgroundImage: AssetImage('assets/images/margot.jpeg'),
+                  )
+                ],
+              ),
+              SizedBox(height: 4.h),
+              const Padding(
+                padding: EdgeInsets.all(4.0),
+                child: FeaturesListScreen(),
+              ),
+              SizedBox(height: 4.h),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'Activités',
+                    style: Theme.of(context).textTheme.titleLarge,
+                  ),
+                ],
+              ),
+              SizedBox(height: 2.h),
+            ],
+          ),
         ),
       ),
     );

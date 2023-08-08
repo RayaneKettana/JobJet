@@ -62,5 +62,10 @@ class Nav {
       page: () => const ApplicationsScreen(),
       binding: ApplicationsControllerBinding(),
     ),
+    GetPage(
+      name: Routes.FEATURES_LIST,
+      page: () => const FeaturesListScreen(),
+      binding: FeaturesListControllerBinding(),
+    ),
   ];
 }
