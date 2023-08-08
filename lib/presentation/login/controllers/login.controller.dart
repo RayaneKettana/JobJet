@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:jobjet/domain/usecases/sign_in_usecase.dart';
-import 'package:jobjet/presentation/home/home.screen.dart';
+import 'package:jobjet/presentation/navigation_bar/navigation_bar.dart';
 
 import '../../../domain/usecases/sign_up_usecase.dart';
 import '../formz_models/password.dart';
@@ -32,7 +32,7 @@ class LoginController extends GetxController {
   Future<void> signInWithEmailAndPassword(String email, String password) async {
     try {
       await _signInUseCase(email, password);
-      Get.off(const HomeScreen());
+      Get.off(() => NavigationBarScreen());
     } catch (e) {
       Get.snackbar(
         "Erreur d'authentification",

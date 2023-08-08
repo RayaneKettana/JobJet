@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+
 import 'package:get/get.dart';
 
 import '../../config.dart';
+import '../../presentation/navigation_bar/navigation_bar.dart';
 import '../../presentation/screens.dart';
 import 'bindings/controllers/controllers_bindings.dart';
 import 'routes.dart';
@@ -39,6 +41,26 @@ class Nav {
       name: Routes.SPLASH,
       page: () => const SplashScreen(),
       binding: SplashControllerBinding(),
+    ),
+    GetPage(
+      name: Routes.NAVIGATION_BAR,
+      page: () => NavigationBarScreen(),
+      binding: SplashControllerBinding(),
+    ),
+    GetPage(
+      name: Routes.CALENDAR,
+      page: () => const CalendarScreen(),
+      binding: CalendarControllerBinding(),
+    ),
+    GetPage(
+      name: Routes.CUSTOMER,
+      page: () => const CustomerScreen(),
+      binding: CustomerControllerBinding(),
+    ),
+    GetPage(
+      name: Routes.APPLICATIONS,
+      page: () => const ApplicationsScreen(),
+      binding: ApplicationsControllerBinding(),
     ),
   ];
 }
