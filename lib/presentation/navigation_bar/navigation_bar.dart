@@ -20,7 +20,7 @@ class NavigationBarScreen extends GetView<NavigationBarController> {
           body: SafeArea(
               child: IndexedStack(
             index: controller.tabIndex,
-            children: const [
+            children: [
               HomeScreen(),
               CalendarScreen(),
               CustomerScreen(),
@@ -43,7 +43,7 @@ class NavigationBarScreen extends GetView<NavigationBarController> {
                 label: 'Calendar',
               ),
               BottomNavigationBarItem(
-                icon: HeroIcon(HeroIcons.userPlus),
+                icon: HeroIcon(HeroIcons.users),
                 label: 'Customer',
               ),
               BottomNavigationBarItem(

@@ -3,9 +3,10 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:jobjet/domain/usecases/sign_in_usecase.dart';
 import 'package:jobjet/domain/usecases/sign_up_usecase.dart';
+import 'package:jobjet/presentation/customer/customer.screen.dart';
 import 'package:sizer/sizer.dart';
 
-import '../../infrastructure/auth/firebase_auth_impl.dart';
+import '../../infrastructure/remote/firebase_auth_impl.dart';
 import 'controllers/login.controller.dart';
 import 'formz_models/password.dart';
 
@@ -89,7 +90,10 @@ class LoginScreen extends GetView<LoginController> {
                 SizedBox(
                   width: double.infinity,
                   child: OutlinedButton(
-                      onPressed: () {}, child: const Text('Créer un compte')),
+                      onPressed: () {
+                        Get.to(() => CustomerScreen());
+                      },
+                      child: const Text('Créer un client')),
                 )
               ],
             ),

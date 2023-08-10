@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
 
 import '../../config.dart';
@@ -54,7 +53,7 @@ class Nav {
     ),
     GetPage(
       name: Routes.CUSTOMER,
-      page: () => const CustomerScreen(),
+      page: () => CustomerScreen(),
       binding: CustomerControllerBinding(),
     ),
     GetPage(
@@ -66,6 +65,6 @@ class Nav {
       name: Routes.FEATURES_LIST,
       page: () => const FeaturesListScreen(),
       binding: FeaturesListControllerBinding(),
-    ),
+    )
   ];
 }

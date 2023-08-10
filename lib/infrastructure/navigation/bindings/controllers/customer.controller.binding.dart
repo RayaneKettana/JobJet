@@ -4,6 +4,7 @@ import 'package:jobjet/domain/usecases/customer/create_customer_usecase.dart';
 import 'package:jobjet/domain/usecases/customer/get_all_customers_usercase.dart';
 import 'package:jobjet/infrastructure/repositories/customer_repository_impl.dart';
 
+import '../../../../domain/usecases/customer/delete_customer_usecase.dart';
 import '../../../../presentation/customer/controllers/customer.controller.dart';
 
 class CustomerControllerBinding extends Bindings {
@@ -14,6 +15,8 @@ class CustomerControllerBinding extends Bindings {
         CreateCustomerUseCase(
             CustomerRepositoryImpl(FirebaseFirestore.instance)),
         GetAllCustomersUseCase(
+            CustomerRepositoryImpl(FirebaseFirestore.instance)),
+        DeleteCustomerUseCase(
             CustomerRepositoryImpl(FirebaseFirestore.instance)),
       ),
     );

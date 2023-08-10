@@ -19,8 +19,19 @@ class CustomerRepositoryImpl implements CustomerRepository {
   @override
   Future<List<Customer>> getAllCustomers() {
     try {
-      return firestore.collection('customers').get().then((snapshot) =>
-          snapshot.docs.map((doc) => Customer.fromJson(doc.data())).toList());
+      return firestore.collection('customers').get().then((snapshot) => snapshot
+          .docs
+          .map((doc) => Customer.fromJson(doc.id, doc.data()))
+          .toList());
+    } catch (e) {
+      throw Exception(e);
+    }
+  }
+
+  @override
+  Future<void> deleteCustomer(id) async {
+    try {
+      return firestore.collection('customers').doc(id).delete();
     } catch (e) {
       throw Exception(e);
     }

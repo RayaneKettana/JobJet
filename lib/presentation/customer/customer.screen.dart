@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:jobjet/domain/usecases/customer/create_customer_usecase.dart';
+import 'package:jobjet/domain/usecases/customer/delete_customer_usecase.dart';
 import 'package:jobjet/domain/usecases/customer/get_all_customers_usercase.dart';
 import 'package:jobjet/infrastructure/repositories/customer_repository_impl.dart';
 import 'package:jobjet/presentation/customer/widget/create_customer.screen.dart';
@@ -18,6 +19,7 @@ class CustomerScreen extends GetView<CustomerController> {
       CreateCustomerUseCase(CustomerRepositoryImpl(FirebaseFirestore.instance)),
       GetAllCustomersUseCase(
           CustomerRepositoryImpl(FirebaseFirestore.instance)),
+      DeleteCustomerUseCase(CustomerRepositoryImpl(FirebaseFirestore.instance)),
     ));
 
     return Scaffold(
@@ -47,15 +49,31 @@ class CustomerScreen extends GetView<CustomerController> {
             ),
           ),
           SizedBox(height: 2.h),
-          for (var customer in controller.customers)
-            ListTile(
-              title: Text(customer.firstName),
-              subtitle: Text(customer.lastName),
-              trailing: IconButton(
-                onPressed: () {},
-                icon: const Icon(Icons.delete),
+          Expanded(
+            child: Obx(
+              () => ListView.builder(
+                itemCount: controller.customers.length,
+                itemBuilder: (context, index) {
+                  final customer = controller.customers[index];
+                  return ListTile(
+                    title: Text(
+                      '${controller.customers[index].firstName} ${controller.customers[index].lastName}',
+                      style: Theme.of(context).textTheme.titleLarge,
+                    ),
+                    subtitle: Text(
+                      controller.customers[index].phoneNumber,
+                    ),
+                    trailing: IconButton(
+                      onPressed: () {
+                        controller.deleteCustomer(customer);
+                      },
+                      icon: const Icon(Icons.delete),
+                    ),
+                  );
+                },
               ),
             ),
+          ),
         ],
       ),
     );
