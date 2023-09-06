@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:jobjet/domain/entity/customer.dart';
 
+import '../../domain/entity/customer.dart';
 import '../../domain/repositories/customer_repository.dart';
 
 class CustomerRepositoryImpl implements CustomerRepository {

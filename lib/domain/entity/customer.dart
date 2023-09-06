@@ -4,7 +4,7 @@ class Customer {
   final String lastName;
   final String? email;
   final String phoneNumber;
-  final String? address;
+  final String address;
 
   Customer({
     this.id,

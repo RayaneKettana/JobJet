@@ -1,11 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:get/get.dart';
-import 'package:jobjet/domain/usecases/customer/create_customer_usecase.dart';
-import 'package:jobjet/domain/usecases/customer/get_all_customers_usercase.dart';
-import 'package:jobjet/infrastructure/repositories/customer_repository_impl.dart';
 
+import '../../../../domain/usecases/customer/create_customer_usecase.dart';
 import '../../../../domain/usecases/customer/delete_customer_usecase.dart';
+import '../../../../domain/usecases/customer/get_all_customers_usercase.dart';
 import '../../../../presentation/customer/controllers/customer.controller.dart';
+import '../../../repositories/customer_repository_impl.dart';
 
 class CustomerControllerBinding extends Bindings {
   @override

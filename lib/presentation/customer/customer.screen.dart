@@ -1,14 +1,15 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:get/get.dart';
-import 'package:jobjet/domain/usecases/customer/create_customer_usecase.dart';
-import 'package:jobjet/domain/usecases/customer/delete_customer_usecase.dart';
-import 'package:jobjet/domain/usecases/customer/get_all_customers_usercase.dart';
-import 'package:jobjet/infrastructure/repositories/customer_repository_impl.dart';
-import 'package:jobjet/presentation/customer/widget/create_customer.screen.dart';
 import 'package:sizer/sizer.dart';
 
+import '../../domain/usecases/customer/create_customer_usecase.dart';
+import '../../domain/usecases/customer/delete_customer_usecase.dart';
+import '../../domain/usecases/customer/get_all_customers_usercase.dart';
+import '../../infrastructure/repositories/customer_repository_impl.dart';
 import 'controllers/customer.controller.dart';
+import 'widget/create_customer.screen.dart';
 
 class CustomerScreen extends GetView<CustomerController> {
   const CustomerScreen({Key? key}) : super(key: key);
@@ -35,43 +36,57 @@ class CustomerScreen extends GetView<CustomerController> {
       ),
       body: Column(
         children: [
-          Padding(
-            padding: const EdgeInsets.all(12.0),
-            child: TextField(
-              onChanged: (value) {},
-              decoration: const InputDecoration(
-                isDense: true,
-                labelText: 'Rechercher un client',
-                floatingLabelBehavior: FloatingLabelBehavior.auto,
-                prefixIcon: Icon(Icons.search),
-                border: OutlineInputBorder(),
+          if (controller.customers.isNotEmpty)
+            Padding(
+              padding: const EdgeInsets.all(12.0),
+              child: TextField(
+                onChanged: (value) {},
+                decoration: const InputDecoration(
+                  isDense: true,
+                  labelText: 'Rechercher un client',
+                  floatingLabelBehavior: FloatingLabelBehavior.auto,
+                  prefixIcon: Icon(Icons.search),
+                  border: OutlineInputBorder(),
+                ),
               ),
             ),
-          ),
           SizedBox(height: 2.h),
           Expanded(
             child: Obx(
-              () => ListView.builder(
-                itemCount: controller.customers.length,
-                itemBuilder: (context, index) {
-                  final customer = controller.customers[index];
-                  return ListTile(
-                    title: Text(
-                      '${controller.customers[index].firstName} ${controller.customers[index].lastName}',
-                      style: Theme.of(context).textTheme.titleLarge,
-                    ),
-                    subtitle: Text(
-                      controller.customers[index].phoneNumber,
-                    ),
-                    trailing: IconButton(
-                      onPressed: () {
-                        controller.deleteCustomer(customer);
-                      },
-                      icon: const Icon(Icons.delete),
-                    ),
+              () {
+                if (controller.isLoading.value) {
+                  return Center(
+                    child:
+                        CircularProgressIndicator(), // Display the loading spinner
                   );
-                },
-              ),
+                } else if (controller.customers.isEmpty) {
+                  return const Center(
+                    child: Text("Pas encore de client"),
+                  );
+                }
+                return ListView.builder(
+                  itemCount: controller.customers.length,
+                  itemBuilder: (context, index) {
+                    final customer = controller.customers[index];
+                    return ListTile(
+                      onTap: () {
+                        controller.editCustomer(customer);
+                      },
+                      title: Text(
+                        '${customer.firstName} ${customer.lastName}',
+                        style: Theme.of(context).textTheme.titleLarge,
+                      ),
+                      subtitle: Text(customer.phoneNumber),
+                      trailing: IconButton(
+                        onPressed: () {
+                          controller.deleteCustomer(customer);
+                        },
+                        icon: const Icon(Icons.delete),
+                      ),
+                    );
+                  },
+                );
+              },
             ),
           ),
         ],
