@@ -1,9 +1,10 @@
 import 'package:flutter/cupertino.dart';
-import 'package:get/get.dart';
-import 'package:jobjet/domain/usecases/sign_in_usecase.dart';
-import 'package:jobjet/presentation/navigation_bar/navigation_bar.dart';
 
+import 'package:get/get.dart';
+
+import '../../../domain/usecases/sign_in_usecase.dart';
 import '../../../domain/usecases/sign_up_usecase.dart';
+import '../../navigation_bar/navigation_bar.dart';
 import '../formz_models/password.dart';
 
 class LoginController extends GetxController {

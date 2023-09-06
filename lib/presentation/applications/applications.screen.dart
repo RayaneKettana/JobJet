@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+
 import 'package:get/get.dart';
-import 'package:jobjet/presentation/applications/widgets/features_list/features_list.screen.dart';
 import 'package:sizer/sizer.dart';
 
 import 'controllers/applications.controller.dart';
+import 'widgets/features_list/features_list.screen.dart';
 
 class ApplicationsScreen extends GetView<ApplicationsController> {
   const ApplicationsScreen({Key? key}) : super(key: key);

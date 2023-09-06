@@ -1,5 +1,4 @@
-import 'package:jobjet/domain/entity/customer.dart';
-
+import '../../entity/customer.dart';
 import '../../repositories/customer_repository.dart';
 
 class CreateCustomerUseCase {

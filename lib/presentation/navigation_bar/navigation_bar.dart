@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+
 import 'package:get/get.dart';
 import 'package:heroicons/heroicons.dart';
-import 'package:jobjet/presentation/applications/applications.screen.dart';
-import 'package:jobjet/presentation/customer/customer.screen.dart';
 
+import '../applications/applications.screen.dart';
 import '../calendar/calendar.screen.dart';
+import '../customer/customer.screen.dart';
 import '../home/home.screen.dart';
 import 'controllers/navigation_bar.controller.dart';
 
