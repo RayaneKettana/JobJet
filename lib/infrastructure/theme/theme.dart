@@ -5,6 +5,7 @@ import 'constants.dart';
 ThemeData theme() {
   return ThemeData(
     useMaterial3: true,
+    primaryColor: jPrimaryColor,
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
         foregroundColor: Colors.white,
@@ -24,12 +25,14 @@ ThemeData theme() {
       enabledBorder: OutlineInputBorder(
         borderSide: BorderSide(color: jPrimaryColor),
       ),
+      focusColor: jPrimaryColor,
       focusedBorder: OutlineInputBorder(
         borderSide: BorderSide(color: jPrimaryColor),
       ),
       border: OutlineInputBorder(
         borderSide: BorderSide(color: jPrimaryColor),
       ),
+      labelStyle: TextStyle(color: jPrimaryColor),
     ),
     scaffoldBackgroundColor: const Color.fromRGBO(255, 255, 255, 1),
     appBarTheme: const AppBarTheme(
@@ -136,6 +139,9 @@ ThemeData theme() {
         fontWeight: FontWeight.normal,
         color: Colors.grey,
       ),
+    ),
+    progressIndicatorTheme: const ProgressIndicatorThemeData(
+      color: jPrimaryColor,
     ),
   );
 }
